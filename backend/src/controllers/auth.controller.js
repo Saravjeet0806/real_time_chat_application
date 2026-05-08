@@ -251,5 +251,3 @@ export async function logoutAll(req, res) {
 
 
 
-
-
