@@ -16,7 +16,7 @@ export async function register(req, res) {
     })
 
     if (isAlreadyRegistered) {
-        res.status(409).json({ message: "user already exists" });
+        return res.status(409).json({ message: "user already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -45,15 +45,14 @@ export async function register(req, res) {
 }
 
 export async function test(req, res) {
+
     if (!req.headers.authorization) {
         return res.status(401).json({
             message: "Unauthorized"
         })
     }
 
-    if (!token) {
-        return res.status(401).json({ message: "Unauthorized" });
-    }
+    const token = req.headers.authorization.split(" ")[1];
 
     const decoded = jwt.verify(token, config.JWT_SECRET);
 
