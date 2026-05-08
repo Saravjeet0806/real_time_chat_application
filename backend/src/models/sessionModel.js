@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 const sessionSchema = new mongoose.Schema({
     user:{
         type : mongoose.Schema.Types.ObjectId,
-        refs : "users",
+        ref : "users",
     },
     refreshTokenHash : {
         type: String,
