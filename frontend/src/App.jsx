@@ -1,8 +1,11 @@
 import React from 'react'
+import Register from './components/Register'
 
 const App = () => {
   return (
-    <div className='bg-amber-200 '>App</div>
+    <>
+    <Register/>
+    </>
   )
 }
 
